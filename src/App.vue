@@ -11,9 +11,9 @@
 <script>
 
 export default {
-  components: { 
+  components: {
     AppBar: () => import('@/components/Navigation/Appbar') 
   },
-  name: 'App',
+  name: 'AppMain',
 };
 </script>

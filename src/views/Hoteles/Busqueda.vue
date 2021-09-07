@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h3>Buscar campo de golf</h3>
+    <h3>Buscar Hoteles</h3>
     <v-row>
       <v-col cols="12" sm="12" md="10">
           <v-text-field 
@@ -39,7 +39,18 @@
 
     methods: {
       doSearch() {
-        this.$router.push({ name: 'ListaCamposPorBusqueda' })
+        if(this.search !== '' && this.search.length > 3) {
+          this.$router.push({
+            name: 'HotelesResultados', query: { search: this.search } 
+          });
+          return;
+        }
+
+        this.$swal({
+          title: 'Error',
+          text: 'El campo de búsqueda está vacío o es menor a 3 caracteres.',
+          icon: 'error'
+        });
       }
     }
   }

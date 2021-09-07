@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/CamposDeGolf/Busqueda')
+    component: () => import('@/views/Hoteles/Busqueda')
   },
   {
     path: '/login',
@@ -15,15 +15,20 @@ const routes = [
     component: () => import('@/views/Login/Ingreso')
   },
   {
-    path: '/registro',
+    path: '/registrame',
     name: 'Registro',
     component: () => import('@/views/Login/Registro')
   },
   {
-    path: '/listado-campos-de-golf',
-    name: 'ListaCamposPorBusqueda',
-    component: () => import('@/views/CamposDeGolf/ListadoBusqueda.vue')
-  }
+    path: '/hoteles/resultado',
+    name: 'HotelesResultados',
+    component: () => import('@/views/Hoteles/ListadoBusqueda')
+  },
+  {
+    path: '/hoteles/detalle/:id',
+    name: 'DetalleHotel',
+    component: () => import('@/views/Hoteles/DetalleBusqueda')
+  },
 ]
 
 const router = new VueRouter({

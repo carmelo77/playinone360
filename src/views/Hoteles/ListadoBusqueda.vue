@@ -1,9 +1,34 @@
 <template>
   <v-container>
     <h3 class="mt-3">Resultado hoteles encontrados con "{{ queryString }}"</h3>
-		<v-row>
+		<v-row v-if="data.length">
       <v-col cols="12" sm="4" md="3" v-for="(hotel, index) of data" :key="index">
         <card-view :hotel="hotel"></card-view>
+      </v-col>
+    </v-row>
+    <v-row v-else>
+      <v-col cols="12" md="12">
+        <v-img
+          class="img-notFound my-8"
+          max-height="350"
+          max-width="450"
+          src="../../assets/error-404.png"
+        ></v-img>
+      </v-col>
+      <v-col cols="12" md="12">
+        <h3 style="text-align: center;">
+          Sin coincidencias.
+          <p>
+            <v-btn 
+            class="mt-3"
+              outlined 
+              color="dark"
+              @click="$router.go(-1)"
+            >
+              Volver
+            </v-btn>
+          </p>
+        </h3>
       </v-col>
     </v-row>
 	</v-container>
@@ -53,3 +78,9 @@ import { hotels } from '@/helpers/data';
 		}
   }
 </script>
+
+<style lang="css">
+  .img-notFound {
+    margin: auto;
+  }
+</style>

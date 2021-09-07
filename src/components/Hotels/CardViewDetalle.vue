@@ -55,6 +55,7 @@
 								class="mt-2"
 								outlined
 								block
+								@click="reserve"
 							>
 								Reservar
 							</v-btn>
@@ -80,6 +81,17 @@ export default {
 				name: '',
 				email: '',
 			}
+		}
+	},
+
+	methods: {
+		reserve() {
+			this.$swal({
+				title: "Oops",
+				text: "Sí aún no posees una cuenta, registrate!"
+			});
+
+			this.$router.push({ name: 'Registro' });
 		}
 	}
 }

@@ -38,9 +38,9 @@
 								label="Contraseña" 
 								required>
 							</v-text-field>
-							<a class="back-link" @click="goBack" color="primary">
+							<a class="back-link" @click="goLogin" color="primary">
 									<small>
-										Volver
+										¿Ya posees cuenta?, ve al Login
 									</small>
 							</a>
 						</v-col>
@@ -79,8 +79,8 @@
 		},
 
 		methods: {
-			goBack() {
-				this.$router.go(-1);
+			goLogin() {
+				this.$router.push({ name: 'Login' });
 			}
 		}
 	}

@@ -1,15 +1,21 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import vuetify from './plugins/vuetify';
+import axios from 'axios';
+
+import API_TEST from './apis/api'
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 Vue.use(VueSweetalert2);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+Vue.prototype.$http = axios; //Para usar axios de manera global con solo llamar this.$http
+axios.defaults.baseURL = API_TEST;
 
 new Vue({
   router,

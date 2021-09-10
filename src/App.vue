@@ -15,5 +15,8 @@ export default {
     AppBar: () => import('@/components/Navigation/Appbar') 
   },
   name: 'AppMain',
+  created() {
+    this.$store.dispatch('autologin');
+  }
 };
 </script>
